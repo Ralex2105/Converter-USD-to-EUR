@@ -17,5 +17,13 @@ fun Application.configureRouting() {
                 call.respondText((value.toDouble() * getUSDtoEUR()).toString())
             }
         }
+        get("/convert/EURtoUSD") {
+            val value = call.parameters[VALUE]
+            if (value == null) {
+                call.respondText("ERROR: No input value")
+            } else {
+                call.respondText((value.toDouble() / getUSDtoEUR()).toString())
+            }
+        }
     }
 }
