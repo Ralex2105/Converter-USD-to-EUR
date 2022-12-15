@@ -10,19 +10,31 @@ fun Application.configureRouting() {
 
     routing {
         get("/convert/USDtoEUR") {
-            val value = call.parameters[VALUE]
-            if (value == null) {
-                call.respondText("ERROR: No input value")
-            } else {
-                call.respondText((value.toDouble() * getUSDtoEUR()).toString())
+            try {
+                val value = call.parameters[VALUE]
+                if (value == null) {
+                    call.respondText("ERROR: No input value")
+                } else {
+                    call.respondText((value.toDouble() * getUSDtoEUR()).toString())
+                }
+            } catch (e: NumberFormatException) {
+                call.respondText("ERROR: input value is not a number")
+            } catch (e: NullPointerException) {
+                call.respondText("ERROR: Can not get the exchange rate")
             }
         }
         get("/convert/EURtoUSD") {
-            val value = call.parameters[VALUE]
-            if (value == null) {
-                call.respondText("ERROR: No input value")
-            } else {
-                call.respondText((value.toDouble() / getUSDtoEUR()).toString())
+            try {
+                val value = call.parameters[VALUE]
+                if (value == null) {
+                    call.respondText("ERROR: No input value")
+                } else {
+                    call.respondText((value.toDouble() / getUSDtoEUR()).toString())
+                }
+            } catch (e: NumberFormatException) {
+                call.respondText("ERROR: input value is not a number")
+            } catch (e: NullPointerException) {
+                call.respondText("ERROR: Can not get the exchange rate")
             }
         }
     }
