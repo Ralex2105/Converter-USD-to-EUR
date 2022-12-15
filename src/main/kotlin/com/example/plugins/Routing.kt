@@ -1,19 +1,21 @@
 package com.example.plugins
 
-import io.ktor.server.routing.*
-import io.ktor.http.*
+import com.example.getUSDtoEUR
 import io.ktor.server.application.*
 import io.ktor.server.response.*
-import io.ktor.server.request.*
+import io.ktor.server.routing.*
 
-val USD = "numberOfUSD"
-
+const val VALUE = "value"
 fun Application.configureRouting() {
 
     routing {
-        get("/convert") {
-            val degree = call.parameters[USD]
-            call.respondText("Hello World!")
+        get("/convert/USDtoEUR") {
+            val value = call.parameters[VALUE]
+            if (value == null) {
+                call.respondText("ERROR: No input value")
+            } else {
+                call.respondText((value.toDouble() * getUSDtoEUR()).toString())
+            }
         }
     }
 }
