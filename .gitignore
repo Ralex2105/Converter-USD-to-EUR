@@ -1,8 +1,7 @@
 .idea
 .gradle
-gradlew
-gradlew.bat
-gradle/
+
+build
 
 # Compiled class file
 *.class
@@ -17,7 +16,7 @@ gradle/
 .mtj.tmp/
 
 # Package Files #
-*.jar
+
 *.war
 *.nar
 *.ear
