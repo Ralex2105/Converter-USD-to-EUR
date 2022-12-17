@@ -1,5 +1,10 @@
 # Converter USD to EUR
 
+[![Tests](https://github.com/Ralex2105/Converter-USD-to-EUR/actions/workflows/gradle-tests.yml/badge.svg?branch=main)](https://github.com/Ralex2105/Converter-USD-to-EUR/actions/workflows/gradle-tests.yml) )
+(Develop
+[![Tests](https://github.com/Ralex2105/Converter-USD-to-EUR/actions/workflows/gradle-tests.yml/badge.svg?branch=develop)](https://github.com/Ralex2105/Converter-USD-to-EUR/actions/workflows/gradle-tests.yml) )
+
+
 Simple converter which takes HTTP POST request with EUR or USD values and returns USD or EUR response.
 
 ## How to use
